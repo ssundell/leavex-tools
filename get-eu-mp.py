@@ -42,6 +42,7 @@ class MEP:
     x_handle: Optional[str]
     political_group: Optional[str]
     country: Optional[str]
+    national_party: Optional[str]
     country_and_national_party: Optional[str]
 
 
@@ -157,18 +158,24 @@ def parse_mep_profile(mep_id: str, url: str) -> Optional[MEP]:
     political_group = political_group_el.get_text(strip=True) if political_group_el else None
 
     # Country + national party
-    # HTML example (text):
-    #   Finland - Kansallinen Kokoomus (Finland)
-    # in:
-    #   <div class="erpl_title-h3 mt-1 mb-1"> ... </div>
     country_block_el = soup.select_one("div.erpl_title-h3.mt-1.mb-1")
-    country_and_national_party = country_block_el.get_text(strip=True) if country_block_el else None
+    raw_country_block = country_block_el.get_text(" ", strip=True) if country_block_el else None
 
     country = None
-    if country_and_national_party:
-        # Split by the first ' - ' only
-        parts = country_and_national_party.split(" - ", 1)
-        country = parts[0].strip() if parts else None
+    national_party = None
+
+    if raw_country_block:
+        # Normalize whitespace
+        cleaned = " ".join(raw_country_block.split())
+        # Expected format: "Finland - Kansallinen Kokoomus (Finland)"
+        if " - " in cleaned:
+            country, nat_party = cleaned.split(" - ", 1)
+            country = country.strip()
+            national_party = nat_party.strip()
+        else:
+            country = cleaned
+            national_party = None
+
 
     # E-mail
     # <a class="link_email mr-2" href="mailto:mika.aaltola@europarl.europa.eu" ...>
@@ -197,7 +204,8 @@ def parse_mep_profile(mep_id: str, url: str) -> Optional[MEP]:
         x_handle=x_handle,
         political_group=political_group,
         country=country,
-        country_and_national_party=country_and_national_party,
+        national_party=national_party,
+        country_and_national_party=raw_country_block,
     )
 
 
