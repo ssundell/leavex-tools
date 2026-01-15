@@ -1,0 +1,24 @@
+{
+    "mep_183916": {
+        "xStatus": "inactive",
+        "xLeftAt": "2025-02-25",
+        "xNotes": "“I‘m out of here! Come and find me on Bluesky, LinkedIn and Mastodon! X is a far-right network actively pursuing authoritarian regime change. Let’s feed democratic platforms, not fascists.”",
+        "xLastArchiveUrl": "https://archive.is/lxqhK",
+        "source": "manual",
+        "updatedAt": "2026-01-15"
+    },
+    "mep_256907": {
+        "usesX": true,
+        "xHandle": "@poznaks",
+        "xStatus": "active",
+        "source": "manual",
+        "updatedAt": "2026-01-15"
+    },
+    "mep_28615": {
+        "usesX": true,
+        "xHandle": "@robertszile",
+        "xStatus": "active",
+        "source": "manual",
+        "updatedAt": "2026-01-15"
+    }
+}
