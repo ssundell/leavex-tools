@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-get-eu-mp.py
+get_eu_mp.py
 
 Scrape the European Parliament MEP list and extract, for each MEP:
 - Email
