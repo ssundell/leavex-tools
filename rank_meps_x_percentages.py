@@ -11,6 +11,7 @@ FIELD_COUNTRY = "country"
 FIELD_PARTY = "party"           # national party
 FIELD_EU_GROUP = "euGroupFull"  # EU-level political group (e.g. "Greens/EFA")
 FIELD_USES_X = "usesX"          # boolean: True if MEP is active/on X
+FIELD_X_STATUS = "xStatus"   # expected values: "active", "inactive", "not_on_x"
 # ===========================================
 
 
@@ -18,6 +19,8 @@ def load_meps(path: Path):
     with path.open(encoding="utf-8") as f:
         return json.load(f)
 
+def is_active_on_x(mep):
+    return mep.get(FIELD_X_STATUS) == "active"
 
 def compute_stats(meps, group_field):
     """
@@ -36,7 +39,12 @@ def compute_stats(meps, group_field):
         if not group:  # skip if missing
             continue
         totals[group] += 1
-        if m.get(FIELD_USES_X):
+        status = m.get(FIELD_X_STATUS)
+
+        # Count as "on X" if:
+        # - usesX is True
+        # - AND the person is not explicitly marked as inactive
+        if m.get(FIELD_USES_X) and status != "inactive":
             on_x[group] += 1
 
     results = []

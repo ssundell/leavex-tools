@@ -11,7 +11,7 @@
 | 7 | Denmark | 11 | 15 | 73.3 |
 | 8 | Poland | 38 | 53 | 71.7 |
 | 9 | Estonia | 5 | 7 | 71.4 |
-| 10 | Germany | 65 | 96 | 67.7 |
+| 10 | Germany | 64 | 96 | 66.7 |
 | 11 | France | 54 | 81 | 66.7 |
 | 12 | Finland | 10 | 15 | 66.7 |
 | 13 | Czechia | 13 | 21 | 61.9 |
@@ -35,7 +35,7 @@
 | Rank | EU group | MEPs on X | Total MEPs | % on X |
 | --- | --- | --- | --- | --- |
 | 1 | Group of the European People's Party (Christian Democrats) | 168 | 188 | 89.4 |
-| 2 | Group of the Greens/European Free Alliance | 35 | 53 | 66.0 |
+| 2 | Group of the Greens/European Free Alliance | 34 | 53 | 64.2 |
 | 3 | Renew Europe Group | 45 | 75 | 60.0 |
 | 4 | Group of the Progressive Alliance of Socialists and Democrats in the European Parliament | 75 | 136 | 55.1 |
 | 5 | European Conservatives and Reformists Group | 38 | 79 | 48.1 |
